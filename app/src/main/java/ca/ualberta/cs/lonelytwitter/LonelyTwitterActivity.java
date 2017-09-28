@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2017. Team X, CMPUT301, University of Alberta - All Rights Reserved.
+ * You may use, distribute, or modify this code under terms and conditions of the Code of Student Behavior at University of Alberta.
+ * You can find a copy of the license in this project. Otherwise please contact contact@abc.ca.
+ */
+
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.BufferedReader;
@@ -24,6 +30,16 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+
+/**
+ *
+ * The main controller class of lonelyTwitter
+ * @author team X
+ * @since 1.0
+ * @version 1.5
+ * @see Tweet
+ * @see Mood
+ */
 public class LonelyTwitterActivity extends Activity {
 
 	private static final String FILENAME = "file.sav";
@@ -33,7 +49,10 @@ public class LonelyTwitterActivity extends Activity {
 	private ArrayList<Tweet> tweets = new ArrayList<Tweet>();
 	private ArrayAdapter<Tweet> adapter;
 	
-	/** Called when the activity is first created. */
+	/**
+	 * Called when activity is first created.
+	 * @param savedInstanceState
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -73,6 +92,9 @@ public class LonelyTwitterActivity extends Activity {
 		});
 	}
 
+	/**
+	 * Called when activity starts.
+	 */
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -83,6 +105,10 @@ public class LonelyTwitterActivity extends Activity {
 		oldTweetsList.setAdapter(adapter);
 	}
 
+	/**
+	 * Reads tweet content from an external Gson file.
+	 * @throws RuntimeException
+	 */
 	private void loadFromFile() {
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
@@ -101,7 +127,10 @@ public class LonelyTwitterActivity extends Activity {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
+	/**
+	 * Saves tweet content to an external file in Gson format.
+	 */
 	private void saveInFile() {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,
