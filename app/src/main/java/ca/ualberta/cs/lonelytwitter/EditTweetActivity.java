@@ -1,14 +1,15 @@
 package ca.ualberta.cs.lonelytwitter;
 
+
+// Removed unused import statements for better clarity
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class EditTweetActivity extends Activity {
 
-    EditText message;
+    // Changed access to private to prevent unauthorized activity
+    private EditText message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

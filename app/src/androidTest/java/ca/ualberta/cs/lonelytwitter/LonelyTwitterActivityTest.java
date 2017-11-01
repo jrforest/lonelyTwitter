@@ -27,7 +27,7 @@ public class LonelyTwitterActivityTest extends ActivityInstrumentationTestCase2<
 
 
     public void testStart() throws Exception {
-        Activity activity = getActivity();
+        // Removed 'Activity' as it is never used in test
     }
 
     public void testTweet() {
@@ -65,7 +65,9 @@ public class LonelyTwitterActivityTest extends ActivityInstrumentationTestCase2<
         solo.assertCurrentActivity("Wrong Activity", EditTweetActivity.class);
 
         String message = solo.getString(R.id.editTweet);
-        assert(message == "Test Tweet!");
+
+        // Changed string comparison method to prevent possible runtime errors
+        assert(message.equals("Test Tweet!"));
 
     }
 
